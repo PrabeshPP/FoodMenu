@@ -2,8 +2,8 @@
 
 public class Ingredients
 {
-    public int id{get;set;}
+    public int Id{get;set;}
     public string Name{get;set;}
     
-    public ICollection<DishIngredients> dishIngredients;
+    public ICollection<DishIngredients> DishIngredients;
 }

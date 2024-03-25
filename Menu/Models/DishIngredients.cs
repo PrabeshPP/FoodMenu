@@ -5,10 +5,10 @@ namespace Menu;
 public class DishIngredients
 {   
     public int DishId{get;set;}
-    public Dish dish{get;set;}
+    public Dish Dish{get;set;}
 
     public int IngretientId{get;set;}
-    public Ingredients ingredients{get;set;}
+    public Ingredients Ingredient{get;set;}
     
     
 
