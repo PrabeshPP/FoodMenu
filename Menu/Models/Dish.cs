@@ -7,5 +7,5 @@ public class Dish
     public string ImageUrl { get; set; }
     public double Price { get; set; }
 
-    public ICollection<DishIngredients> DishIngredients;
+    public ICollection<DishIngredients>? DishIngredients{get;set;}
 }
