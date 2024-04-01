@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Menu;
 
@@ -17,8 +18,9 @@ public class MenuController:Controller
         return View("Index",dishes);
     }
 
-    public IActionResult Detail(int? itemid){
-        Dish? dish = menuContext.Dishes.FirstOrDefault(u=>u.Id == itemid);
+    public async Task<IActionResult> Detail(int? itemid){
+        Dish? dish = await menuContext.Dishes.Include(di => di.DishIngredients).ThenInclude(i => i.Ingredient).FirstOrDefaultAsync(x => x.Id == itemid);
+        
         return View("Detail",dish);
     }
 }
