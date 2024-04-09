@@ -4,4 +4,8 @@
     ViewData["title"] = "";
 }
 
-<h1>@Model.DishIngredients?.Count</h1>
+<ul>
+    @foreach(DishIngredients dishIngredients in Model.DishIngredients){
+        <li>@dishIngredients.Ingredient.Name</li>
+    }
+</ul>
