@@ -1,11 +1,30 @@
 @model Dish
 
 @{
-    ViewData["title"] = "";
+    ViewData["title"] = @Model.Name;
 }
 
-<ul>
-    @foreach(DishIngredients dishIngredients in Model.DishIngredients){
-        <li>@dishIngredients.Ingredient.Name</li>
-    }
-</ul>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <img class="img-fluid rounded" src="@Model.ImageUrl" alt="@Model.Name" />
+        </div>
+        <div class=" col-6">
+            <div>
+                <h5 class="">Name: @Model.Name</h5>
+                <p class="">$@Model.Price</p>
+            </div>
+            <div>
+                <h5 class="">Ingredients</h5>
+                <ul class="list-group">
+                    @foreach (DishIngredients dishIngredients in Model.DishIngredients)
+                    {
+                        <li class="list-group-item">@dishIngredients.Ingredient.Name</li>
+                    }
+                </ul>
+            </div>
+            <a asp-asp-controller="MenuController" asp-action="index" class="btn btn-primary mt-5" type="button">Back</a>
+        </div>
+    </div>
+
+</div>

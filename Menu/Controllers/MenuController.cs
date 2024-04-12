@@ -23,4 +23,8 @@ public class MenuController:Controller
         
         return View("Detail",dish);
     }
+
+    public IActionResult CreateItem(){
+        return View("CreateItem");
+    }
 }
